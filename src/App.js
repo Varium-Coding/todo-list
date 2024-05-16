@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import TodoList from './todostuff/todoList';
 import TodoItem from './todostuff/todoItems';
-
+import './App.css'
 const TodoApp = () => {
   const [inputText, setInputText] = useState('');
   const [todos, setTodos] = useState([]);
