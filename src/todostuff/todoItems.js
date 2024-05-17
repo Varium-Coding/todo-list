@@ -1,11 +1,17 @@
-import React from 'react';
-import './todoItems.css'
+import React, { useState } from 'react';
+import './todoItems.css';
 
 const TodoItem = ({ todo, toggleTodo, deleteTodo }) => {
   const { id, text, completed } = todo;
+  const [isFadingOut, setIsFadingOut] = useState(false);
+
+  const handleDelete = () => {
+    setIsFadingOut(true);
+    setTimeout(() => deleteTodo(id), 500); 
+  };
 
   return (
-    <div className='todo-Item'>
+    <div className={`todo-Item ${isFadingOut ? 'fade-out' : ''}`}>
       <input
         type="checkbox"
         checked={completed}
@@ -14,7 +20,7 @@ const TodoItem = ({ todo, toggleTodo, deleteTodo }) => {
       <span style={{ textDecoration: completed ? 'line-through' : 'none' }}>
         {text}
       </span>
-      <button onClick={() => deleteTodo(id)}>Delete</button>
+      <button onClick={handleDelete}>Delete</button>
     </div>
   );
 };
