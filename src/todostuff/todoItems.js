@@ -1,10 +1,11 @@
 import React from 'react';
+import './todoItems.css'
 
 const TodoItem = ({ todo, toggleTodo, deleteTodo }) => {
   const { id, text, completed } = todo;
 
   return (
-    <div>
+    <div className='todo-Item'>
       <input
         type="checkbox"
         checked={completed}

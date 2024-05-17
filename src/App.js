@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import TodoList from './todostuff/todoList';
 import TodoItem from './todostuff/todoItems';
 import './App.css'
+import 'C:/Users/Mglve/OneDrive/Desktop/GCE/TodoApp/todo-list/src/App.css'
 const TodoApp = () => {
   const [inputText, setInputText] = useState('');
   const [todos, setTodos] = useState([]);
@@ -36,7 +37,7 @@ const TodoApp = () => {
   };
 
   return (
-    <div>
+    <div class='Content'>
       <h1>Todo List</h1>
       <form onSubmit={handleSubmit}>
         <input
@@ -47,16 +48,7 @@ const TodoApp = () => {
         />
         <button type="submit">Add</button>
       </form>
-      <TodoList>
-        {todos.map((todo) => (
-          <TodoItem
-            key={todo.id}
-            todo={todo}
-            toggleTodo={toggleTodo}
-            deleteTodo={deleteTodo}
-          />
-        ))}
-      </TodoList>
+      <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
     </div>
   );
 };
